@@ -82,7 +82,8 @@ dat$ImageCategory <- ImageCategory
 dat <- dat %>% filter(dat$ImageCategory != "ProductOnly" & 
                            dat$Emotion != "NONE" &
                            dat$NumberOfPeople != 0)
-dat <- dat %>% select(- c(ImageCategory, Emotion, ProductOnly))
+dat <- dat %>% select(- c(ProductOnly))
+dat <- droplevels.data.frame(dat)
 
 # creation of the response variable
 dat$ER <- ( (dat$Likes + dat$Comments)/dat$Followers ) * 100
