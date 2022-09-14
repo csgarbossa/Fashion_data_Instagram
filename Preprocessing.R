@@ -2,7 +2,8 @@ rm(list=ls())
 library(dplyr)
 
 # load data
-
+dat <- read.table(unzip("./fashion_data.zip",
+                        "fashion data on Instagram.tab"), header=T, sep = '\t')
 
 # selection of the population useful for the analysis based on the number of followers
 min_followers <- 500
