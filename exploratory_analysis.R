@@ -62,6 +62,35 @@ boxplot(dat$ER ~ dat$NumberOfFashionProduct, col = "#999999",
 barplot(table(dat$ImageCategory), col = "#999999")
 boxplot(dat$ER ~ dat$ImageCategory, col = "#999999", ylim = c(0, 20), ylab = "Engagement Rate", xlab = "Logo")
 
+ggplot(dat, aes(x = BrandCategory, y = ER, fill = ImageCategory)) + 
+  geom_boxplot(outlier.colour = "grey", outlier.shape = 1,
+               outlier.size = 1, position = position_dodge(0.8)) + 
+  coord_cartesian(ylim = c(0, 15)) +
+  theme_classic() +
+  stat_summary(fun = mean, geom = "point", shape = 16, size = 3, position = position_dodge(0.8)) +
+  scale_fill_manual(values = c("orange", "violet", "purple", "pink") ) +
+  xlab(label = NULL) + ylab(label = "ER") + labs(fill = NULL)
+# marketing photos seems to not be the best choice except for the mega couture case
+
+ggplot(dat, aes(x = Emotion, y = ER, fill = BrandCategory)) + 
+  geom_boxplot(outlier.colour = "grey", outlier.shape = 1,
+               outlier.size = 1, position = position_dodge(0.8)) + 
+  coord_cartesian(ylim = c(0, 15)) +
+  theme_classic() +
+  stat_summary(fun = mean, geom = "point", shape = 16, size = 3, position = position_dodge(0.8)) +
+  scale_fill_manual(values = c("orange", "violet", "purple", "pink") ) +
+  xlab(label = NULL) + ylab(label = "ER") + labs(fill = NULL)
+
+ggplot(dat, aes(x = ImageCategory, y = ER, fill = Emotion)) + 
+  geom_boxplot(outlier.colour = "grey", outlier.shape = 1,
+               outlier.size = 1, position = position_dodge(0.8)) + 
+  coord_cartesian(ylim = c(0, 15)) +
+  theme_classic() +
+  stat_summary(fun = mean, geom = "point", shape = 16, size = 3, position = position_dodge(0.8)) +
+  scale_fill_manual(values = c("orange", "violet", "purple", "pink") ) +
+  xlab(label = NULL) + ylab(label = "ER") + labs(fill = NULL)
+# marketing is again the less appreciated image category
+
 # division of the dataset between brand categories, image categories and emotions
 # the dataset has some levels more present than others
 
