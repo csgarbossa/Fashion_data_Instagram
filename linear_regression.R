@@ -78,7 +78,7 @@ setdiff(names(m.lin$model),names(m.step$model)) # variables not used in the step
 summary(m.step)
 
 p.step <- predict(m.step, newdata = test)
-tab$Linear_Stepwise <- error(p.step)
+tab$Linear_stepwise <- error(p.step)
 
 t(tab)
 
@@ -201,7 +201,7 @@ p.lasso.ada <- predict(m.lasso.ada, newx = xte, s = "lambda.min")
 
 summary(p.lasso.ada)
 summary(test$y)
-tab$Lasso_adattivo <- error(p.lasso.ada)
+tab$Adaptive_lasso <- error(p.lasso.ada)
 
 t(tab)
 
